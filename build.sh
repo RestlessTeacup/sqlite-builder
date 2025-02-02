@@ -6,10 +6,12 @@ set -e
 # Установка базовых утилит
 sudo apt update
 sudo apt install -y \
+    gcc \
+    g++ \
+    cmake \
     wget \
     unzip \
-    cmake \
-    gcc
+    build-essential
 
 # Загрузка SQLite
 wget https://www.sqlite.org/2018/sqlite-amalgamation-3260000.zip

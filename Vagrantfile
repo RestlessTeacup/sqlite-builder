@@ -1,6 +1,9 @@
 Vagrant.configure("2") do |config|
   config.vm.box = "debian/bullseye64"
   
+  # Настройка синхронизированной папки
+  config.vm.synced_folder ".", "/vagrant", type: "rsync"
+
   # Провижининг через inline-скрипт
   config.vm.provision "shell", inline: <<-SHELL
     # Обновление пакетов (с подавлением вопросов)
@@ -20,6 +23,10 @@ Vagrant.configure("2") do |config|
     unzip -j -o sqlite-amalgamation-3260000.zip -d sqlite-src
     
     # Запуск сборки
-    cmake . && make
+    cmake . && make > build.log 2>&1
+
+    # Копирование файлов сборки в синхронизированную папку
+    cp libsqlite.so /vagrant/
+    cp build.log /vagrant/
   SHELL
 end

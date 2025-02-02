@@ -1,4 +1,5 @@
 FROM debian:bullseye-slim
+WORKDIR /app
 
 RUN apt update && apt install -y \
     gcc \
