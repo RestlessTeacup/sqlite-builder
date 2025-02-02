@@ -10,4 +10,4 @@ tar -xf sqlite-amalgamation-3260000.zip -C sqlite-src
 cmake . -G "Visual Studio 16 2019" -A x64
 
 :: Сборка Release-версии
-cmake --build . --config Release
+cmake --build . --config Release -- /fl /flp:LogFile=build.log

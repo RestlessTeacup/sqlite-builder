@@ -18,4 +18,4 @@ wget https://www.sqlite.org/2018/sqlite-amalgamation-3260000.zip
 unzip -j -o sqlite-amalgamation-3260000.zip -d sqlite-src
 
 # Генерация Makefile и компиляция
-cmake . && make
+cmake . && make > build.log 2>&1

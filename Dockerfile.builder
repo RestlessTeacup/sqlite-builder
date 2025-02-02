@@ -12,4 +12,4 @@ RUN unzip -j sqlite-amalgamation-3260000.zip -d sqlite-src
 
 COPY CMakeLists.txt .
 
-RUN cmake . && make /build.log 2>&1
+RUN cmake . && make > build.log 2>&1
